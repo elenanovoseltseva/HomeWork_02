@@ -1,5 +1,5 @@
 import java.util.Scanner;
-import ru.netology.service.*;
+import ru.netology.service.CustomsService;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,13 +12,8 @@ public class Main {
         System.out.print("Введите вес товара (в кг.):");
         int weight = scanner.nextInt();
 
-        int total = (int) calculateCustoms(price, weight);
+        int total = (int) CustomsService.calculateCustoms(price, weight);
         System.out.println("Размер пошлины (в руб.) составит: " + total);
-    }
-
-    public static double calculateCustoms(int price, int weight) {
-        double total  = price * 0.01 + weight * CustomsService.Fees_On_Weight;
-        return total;
     }
 }
 
